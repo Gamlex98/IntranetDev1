@@ -1,44 +1,32 @@
+<div class="background">
+  <div class="container">
+    <div class="row justify-content-center mt-4">
+      <div class="col-12 col-sm-6">
+        <div class="recovery">
+          <h1 class="title">Recovery Pass - Intranet Fresmar</h1>
 
-<div class="recovery">
-  <h1 class="title">Recovery Pass - Intranet Fresmar</h1>
-  <main class="order-form my-4 mx-4">
-    <div class="container pt-4">
-      <div class="row">
-        <div class="col-12 col-sm-6">
           <div class="caja">
-            <br> <br>
-            <h3>Recuperar clave</h3>
+            <h3> Proceso para recuperar contraseña </h3>
           </div>
 
           <form [formGroup]="formularioRecovery" class="mt-3 mx-4" (ngSubmit)="PasswordRecovery()">
-            <mat-form-field appearance="outline">
-              <mat-label>Usuario</mat-label>
-              <input formControlName="user" type="text" matInput required placeholder="Digite su usuario">
-            </mat-form-field>
-
-<!--             <mat-form-field appearance="outline">
-              <mat-label>Clave actual</mat-label>
-              <input formControlName="currentPassword" type="password" matInput required placeholder="Digite su clave actual">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-              <mat-label>Nueva clave</mat-label>
-              <input formControlName="newPassword" type="password" matInput required placeholder="Digite su nueva clave">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-              <mat-label>Confirmar nueva clave</mat-label>
-              <input formControlName="confirmPassword" type="password" matInput required placeholder="Confirme su nueva clave">
-            </mat-form-field>  -->
-
-            <div class="row center-align">
-              <button mat-raised-button color="primary" type="submit">Recuperar</button>
-              &nbsp;
-              <button mat-raised-button color="warn" type="button" routerLink="">Cancelar</button>
+            <div class="form-group">
+              <label for="user" style="font-weight: bold;">Usuario</label>
+              <input formControlName="user" type="text" class="form-control" required placeholder="Digite su usuario">
+            </div>
+            <br>
+            <div class="row justify-content-center">
+              <div class="col-6">
+                <button mat-raised-button type="submit" class="btn btn-success btn-block">Recuperar</button>
+              </div>
+              <div class="col-6">
+                <button mat-raised-button type="button" class="btn btn-secondary btn-block" (click)="goBack()">Volver
+                  Atrás</button>
+              </div>
             </div>
           </form>
         </div>
       </div>
     </div>
-  </main>
+  </div>
 </div>

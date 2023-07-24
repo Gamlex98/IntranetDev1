@@ -1,0 +1,78 @@
+body {
+    background-color: #f2f2f2; /* Color de fondo */
+  }
+
+  .background {
+    background-color: #f2f2f2; /* Color de fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .recovery {
+    background-color: #f0f7f4; /* Color verde claro */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333333; /* Color de texto oscuro */
+  }
+
+  .caja {
+    background-color: #c6e1d4; /* Color verde más claro para el fondo de la caja */
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  h3 {
+    background-color: #56b56c; /* Color verde para el encabezado */
+    padding: 8px;
+    border-radius: 4px;
+    color: #ffffff; /* Color de texto blanco */
+  }
+
+  .form-control {
+    border-radius: 4px;
+  }
+
+  .btn {
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .btn-success {
+    background-color: #56b56c; /* Color verde para el botón de recuperar */
+    border: none;
+    color: white;
+  }
+
+  .btn-secondary {
+    background-color: #777777; /* Color gris oscuro para el botón de volver atrás */
+    border: none;
+    color: white;
+  }
+
+  .btn-block {
+    width: 100%;
+  }
+
+  .btn-primary,
+  button {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover,
+  button:hover {
+    opacity: 0.8;
+  }

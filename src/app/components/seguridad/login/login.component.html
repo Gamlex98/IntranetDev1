@@ -7,7 +7,7 @@
     </div>
     <div class="right">
         <h5>Login</h5>
-        <p style="margin-top: 100px;"> No tienes una cuenta?  <a class="link" (click)="navigateToRegister()">Crear Cuenta</a> Esto solamente tomará un minuto.</p>
+        <p style="margin-top: 100px;"> No tienes una cuenta? <a class="link" (click)="onRegisterClick()">Crear Cuenta</a> Esto solamente tomará un minuto.</p>
         <div class="inputs">
             <form [formGroup]="formularioLogin" (ngSubmit)="Login()" class="login">
                 <input formControlName="usuario" type="text" placeholder="Usuario" id="usuario" class="validate">
@@ -15,7 +15,7 @@
                 <input formControlName="password" type="password" id="clave" placeholder="Contraseña" class="validate">
                 <br><br>
                 <div class="remember-me--forget-password">
-                    <p> Olvidaste la contraseña ? <a class="link"  (click)="navigateToResetPass()">Recuperar</a> </p>
+                    <p> Olvidaste la contraseña ? <a class="link" h (click)="onResetPassClick()">Recuperar</a> </p>
                 </div>
                 <br>
                 <button type="submit" name="action"> Entrar </button>

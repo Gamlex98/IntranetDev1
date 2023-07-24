@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CredencialesUserModel } from 'src/app/models/credenciales.user';
@@ -8,6 +8,7 @@ import { SessionStorageService } from 'src/app/services/sessionStorage.service';
 import Swal from 'sweetalert2';
 import { MD5 } from 'crypto-js';
 import { SeguridadService } from 'src/app/services/seguridad.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,8 @@ import { SeguridadService } from 'src/app/services/seguridad.service';
 })
 
 export class LoginComponent implements OnInit, AfterViewInit {
+  @Output() registerClick = new EventEmitter<void>();
+  @Output() resetPassClick = new EventEmitter<void>();
 
   formularioLogin: FormGroup = new FormGroup({});
   mostrar: Boolean = true;
@@ -25,7 +28,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
     private formBuild: FormBuilder,
     private serviceSeguridad: SeguridadService,
     private servicioSessionStorage: SessionStorageService,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) {
     this.siteKey = "6Ld6BCwjAAAAAMBTkRCSXqSyZQQp7Cz8AjLhmPMn";  //Se copia la clave dada por google";
   }
@@ -37,16 +41,13 @@ export class LoginComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
 
   }
+  onRegisterClick(): void {
+    this.registerClick.emit();
+  }
 
-    // Función para navegar a la ruta de register
-    navigateToRegister() {
-      this.router.navigate(['register']);
-    }
-  
-    // Función para navegar a la ruta de resetPass
-    navigateToResetPass() {
-      this.router.navigate(['resetPass']);
-    }
+  onResetPassClick(): void {
+    this.resetPassClick.emit();
+  }
 
   ConstruccionFormulario() {
     this.formularioLogin = this.formBuild.group({

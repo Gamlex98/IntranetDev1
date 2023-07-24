@@ -14,12 +14,12 @@ import Swal from 'sweetalert2';
 
 export class ResetPassComponent implements OnInit {
 
-  formularioRecovery: FormGroup=new FormGroup({});
+  formularioRecovery: FormGroup = new FormGroup({});
 
   constructor(
     private formBuilder: FormBuilder,
-    private serviceSecurity:SeguridadService,
-    private router:Router
+    private serviceSecurity: SeguridadService,
+    private router: Router
 
   ) { }
 
@@ -28,10 +28,14 @@ export class ResetPassComponent implements OnInit {
     this.capturarUser();
   }
 
+  goBack(): void {
+    window.history.back();
+  }
+
   PasswordRecovery() {
     let idUsuario = this.formularioRecovery.controls['user'].value;
     console.log(idUsuario);
-  
+
     this.serviceSecurity.passwordRecoveryService(idUsuario).subscribe({
       next: (data: any) => {
         if (data === true) {
@@ -69,31 +73,31 @@ export class ResetPassComponent implements OnInit {
       }
     });
   } // FIN de PasswordRecovery
-  
 
-  ConstruccionFormulario(){
-    this.formularioRecovery=this.formBuilder.group({
-        user:["",[Validators.required,Validators.minLength(3)]],
-        // currentPassword:["",[Validators.required, Validators.minLength(4)]],
-        // newPassword:["",[Validators.required, Validators.minLength(4)]],
-        // confirmPassword:["",[Validators.required, Validators.minLength(4)]]
+
+  ConstruccionFormulario() {
+    this.formularioRecovery = this.formBuilder.group({
+      user: ["", [Validators.required, Validators.minLength(3)]],
+      // currentPassword:["",[Validators.required, Validators.minLength(4)]],
+      // newPassword:["",[Validators.required, Validators.minLength(4)]],
+      // confirmPassword:["",[Validators.required, Validators.minLength(4)]]
     });
-}
+  }
 
-capturarUser(){
-  //Captura la información del usuario desde el sessionStorage 
-  let datosActuales=sessionStorage.getItem("sesionIntranet");
-  if(datosActuales){
+  capturarUser() {
+    //Captura la información del usuario desde el sessionStorage 
+    let datosActuales = sessionStorage.getItem("sesionIntranet");
+    if (datosActuales) {
       //console.log("leyó datos del localStorage")
-      let datoSesionJson= JSON.parse(datosActuales);
-      let datosLS= datoSesionJson.datos;
+      let datoSesionJson = JSON.parse(datosActuales);
+      let datosLS = datoSesionJson.datos;
       //console.log("datosLS.nombre: " + datosLS.nombre);
       this.formularioRecovery.controls['user'].setValue(datosLS.nombre);
+    }
   }
-}
 
-recoveryPassword(){
-    if(this.formularioRecovery.invalid){
+  recoveryPassword() {
+    if (this.formularioRecovery.invalid) {
       Swal.fire({
         position: 'center',
         icon: 'error',
@@ -101,32 +105,33 @@ recoveryPassword(){
         showConfirmButton: true,
         confirmButtonText: 'Entendido'
       });
-    }else{
+    } else {
       let datos = new CredencialesUserModel();
-      datos.usuario=this.formularioRecovery.controls['user'].value;
+      datos.usuario = this.formularioRecovery.controls['user'].value;
       // datos.password = MD5(this.formularioRecovery.controls['currentPassword'].value).toString();
       // datos.newPassword = MD5(this.formularioRecovery.controls['newPassword'].value).toString();
       // datos.confPassword = MD5(this.formularioRecovery.controls['confirmPassword'].value).toString();
       this.serviceSecurity.ChangePasswordService(datos).subscribe({
-        next: (data)=>{
+        next: (data) => {
           //console.log(data);
-          if(data == true){
+          if (data == true) {
             this.PasswordRecovery();
             this.router.navigate(['/login']);
-            }else{
-              Swal.fire({
-                position: 'center',
-                icon: 'error',
-                title: `Clave errada , por favor revisar !!`,
-                showConfirmButton: true,
-                confirmButtonText: 'Entendido'
-              });
-              this.router.navigate(['home']);
+
+          } else {
+            Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: `Clave errada , por favor revisar !!`,
+              showConfirmButton: true,
+              confirmButtonText: 'Entendido'
+            });
+            this.router.navigate(['home']);
           }
         },
-        error:(e)=> console.log(e)
-        });
-     this.router.navigate(['home']);
+        error: (e) => console.log(e)
+      });
+      this.router.navigate(['home']);
     }
-}
+  }
 }

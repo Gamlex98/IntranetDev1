@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .background {
+    background-color: #f2f2f2; /* Color de fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    background-color: #ffffff; /* Color del contenedor del formulario */
+    border: 2px solid #56b56c; /* Color del borde verde */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    width: 100%;
+  }
+
+  h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333333; /* Color de texto oscuro */
+  }
+
+  /* Resto de estilos del formulario y elementos dentro del contenedor */
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-control {
+    border-radius: 4px;
+  }
+
+  select.form-control {
+    width: 100%;
+  }
+
+  .btn {
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .btn-primary {
+    background-color: #56b56c; /* Color verde para el botón de crear usuario */
+    border: none;
+    color: white;
+    width: 100%;
+  }
+
+  /* Estilos adicionales para los botones */
+  .btn-primary,
+  button {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover,
+  button:hover {
+    opacity: 0.8;
+  }

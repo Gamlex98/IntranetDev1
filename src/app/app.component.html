@@ -1,10 +1,14 @@
-
-
 <div *ngIf="sesionActiva">
     <app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
     <app-body [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-body>
-</div>
-
-<div *ngIf="!sesionActiva">
-    <app-login></app-login>
-</div>
+  </div>
+  
+  <div *ngIf="!sesionActiva">
+    <app-login *ngIf="!showRegister && !showResetPass" 
+               (registerClick)="onRegisterClick()" 
+               (resetPassClick)="onResetPassClick()">
+    </app-login>
+    <app-register-user *ngIf="showRegister"></app-register-user>
+    <app-resetPass *ngIf="showResetPass"></app-resetPass>
+  </div>
+  

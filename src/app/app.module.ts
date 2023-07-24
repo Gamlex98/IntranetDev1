@@ -50,6 +50,7 @@ import { ListarUsuariosComponent } from './components/seguridad/listarUsuarios/l
 import { AdmonUserComponent } from './components/seguridad/admonUser/admonUser.component';
 import { ListarRolesComponent } from './components/seguridad/listarRoles/listarRoles.component';
 import { LogoutComponent } from './components/seguridad/logout/logout.component';
+import { RegisterUserComponent } from './components/seguridad/register-user/register-user.component';
 
 @NgModule({
 
@@ -77,7 +78,8 @@ import { LogoutComponent } from './components/seguridad/logout/logout.component'
     CocolaComponent,
     BrigadaComponent,
     ListarRolesComponent,
-    LogoutComponent
+    LogoutComponent,
+    RegisterUserComponent
     
   ],
   imports: [
