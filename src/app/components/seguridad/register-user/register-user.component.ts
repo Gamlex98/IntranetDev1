@@ -29,6 +29,9 @@ export class RegisterUserComponent implements OnInit {
   selectedDate !: any;
   selectedRole !: string;
 
+  showPassword: boolean = false;
+  showConfirmPassword: boolean = false;
+
   constructor(
     private formBuild: FormBuilder,
     private serviceSeguridad: SeguridadService,
@@ -41,8 +44,26 @@ export class RegisterUserComponent implements OnInit {
   }
 
   goBack(): void {
-    window.history.back();
+    window.location.reload();
   }
+
+  // passwordsMatch(): boolean {
+  //   const password = this.formularioRegister.controls["password"].value;
+  //   const confirmPassword = this.formularioRegister.controls["confirmPassword"].value;
+  //   return password === confirmPassword;
+  // }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+    const passwordInput = document.getElementById("password") as HTMLInputElement;
+    passwordInput.type = this.showPassword ? "text" : "password";
+  }
+
+  // toggleConfirmPasswordVisibility() {
+  //   this.showConfirmPassword = !this.showConfirmPassword;
+  //   const confirmPasswordInput = document.getElementById("confirmPassword") as HTMLInputElement;
+  //   confirmPasswordInput.type = this.showConfirmPassword ? "text" : "password";
+  // }
 
   ConstruccionFormulario() {
     this.formularioRegister = this.formBuild.group({
@@ -50,6 +71,7 @@ export class RegisterUserComponent implements OnInit {
       correo: ["", [Validators.required]],
       nombreCompleto: ["", [Validators.required, Validators.minLength(3)]],
       fechaNacimiento: ["", [Validators.required]],
+      password: ["", [Validators.required, Validators.minLength(5)]],
       lugarNacimiento: ["", [Validators.required]],
     });
   }
@@ -93,12 +115,12 @@ export class RegisterUserComponent implements OnInit {
       // datos.fechaNacimiento = selectedDate.toISOString();
       console.log("Fecha de Nacimiento:", datos.fechaNacimiento, typeof datos.fechaNacimiento);
 
-      let password: string = "inicio";
+      let password=this.formularioRegister.controls['password'].value;;
       datos.password = MD5(password).toString();
       console.log("Contraseña:", datos.password, typeof datos.password);
 
 
-      this.roleUsuario = this.capturarSelectRole();
+      this.roleUsuario = 'user';
 
       console.log("Rol :", this.roleUsuario, typeof this.roleUsuario);
 
@@ -120,9 +142,8 @@ export class RegisterUserComponent implements OnInit {
               confirmButtonText: 'Entendido'
             });
 
-            //Regresa al register
-            this.router.navigate(['/register']);
-            //return;//Regresa porque el usuario ya existe
+            this.router.navigate(['./home']);
+
           } else {
             console.log("No hay  usuario  y por eso se va a crear");
 
@@ -138,7 +159,6 @@ export class RegisterUserComponent implements OnInit {
                   // Graba el Role en la base de datos
                   console.log("datos.roles: " + this.roleUsuario);
                   this.RegistrarRoleUsuario(this.roleUsuario, this.idUsuario);
-                  this.router.navigate(['/admonUser']);
                 } else {
                   Swal.fire({
                     position: 'center',
@@ -165,7 +185,7 @@ export class RegisterUserComponent implements OnInit {
   }
 
   RegistrarRoleUsuario(role: string, idUsuario: string) {
-    //Grabael Role del usuario
+    // Grabael Role del usuario
     this.serviceSeguridad.CrearRoleUsuarioService(role, idUsuario).subscribe({
       next: (data) => {
         console.log(data);
@@ -175,10 +195,13 @@ export class RegisterUserComponent implements OnInit {
             icon: 'success',
             title: `Creación de usuario exitosa !!`,
             text: `El usuario ha sido creado correctamente`,
-            showConfirmButton: true,
-            confirmButtonText: 'Entendido'
+            showConfirmButton: false,
+            timer: 1000
+          }).then(() => {
+            setTimeout(() => {
+              window.location.reload(); // Refrescamos la página después de 2 segundos
+            }, 1100);
           });
-          //this.router.navigate(['home']);
         } else {
           Swal.fire({
             position: 'center',
@@ -192,8 +215,8 @@ export class RegisterUserComponent implements OnInit {
       },
       error: (e) => console.log(e)
     });
-
   }
+  
 
   capturarSelectSede(): string {
     const e = document.getElementById("sucursal") as HTMLSelectElement;

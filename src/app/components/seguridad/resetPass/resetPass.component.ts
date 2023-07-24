@@ -29,7 +29,7 @@ export class ResetPassComponent implements OnInit {
   }
 
   goBack(): void {
-    window.history.back();
+    window.location.reload();
   }
 
   PasswordRecovery() {
@@ -45,9 +45,13 @@ export class ResetPassComponent implements OnInit {
             icon: 'success',
             title: `Se ha enviado el correo con la nueva clave !!`,
             text: `Revisa tu correo de nómina, ahí encontrarás la nueva clave...`,
-            showConfirmButton: true,
-            confirmButtonText: 'Entendido'
+            showConfirmButton: false,
+            timer: 2200
           });
+          setTimeout(() => {
+            window.location.reload(); // Refrescamos la página después de 2 segundos
+          }, 2300);
+          
         } else {
           // Si data es false, muestra el mensaje de error
           Swal.fire({

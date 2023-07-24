@@ -4,6 +4,20 @@ body {
     font-family: Arial, sans-serif;
   }
 
+  .input-group-append button {
+    border: 1px solid #ced4da;
+    border-left: none;
+    cursor: pointer;
+  }
+
+  .input-group-append button:hover {
+    background-color: #f8f9fa;
+  }
+
+  .letra {
+    font-weight: bold;
+  }
+
   .background {
     background-color: #f2f2f2; /* Color de fondo */
     display: flex;

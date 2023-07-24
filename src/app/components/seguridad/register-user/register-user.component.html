@@ -5,25 +5,25 @@
       <form [formGroup]="formularioRegister" action="">
 
         <div class="form-group">
-          <label>Usuario:</label>
+          <label class="letra">Usuario:</label>
           <input formControlName="usuario" type="text" id="usuario" class="form-control" required
-            placeholder="Digite su usuario">
+            placeholder="Digite su número de Cédula">
         </div>
 
         <div class="form-group">
-          <label>Correo:</label>
+          <label class="letra">Correo:</label>
           <input formControlName="correo" type="text" id="correo" class="form-control" required
             placeholder="Digite su correo">
         </div>
 
         <div class="form-group">
-          <label>Nombre Completo:</label>
+          <label class="letra">Nombre Completo:</label>
           <input formControlName="nombreCompleto" type="text" id="nombreCompleto" class="form-control" required
             placeholder="Digite el nombre completo">
         </div>
 
         <div class="form-group">
-          <label>Seleccione Sede/Sucursal:</label>
+          <label class="letra">Seleccione Sede/Sucursal:</label>
           <select class="form-control" id="sucursal">
             <option value="" disabled selected>Seleccione Sede/Sucursal...</option>
             <option value="1">S01</option>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="form-group">
-          <label>Seleccione el Cargo:</label>
+          <label class="letra">Seleccione el Cargo:</label>
           <select class="form-control" id="cargo">
             <option value="" disabled selected>Seleccione ciudad Nacimiento...</option>
             <option value="1">Administrador PDV</option>
@@ -116,34 +116,37 @@
         </div>
 
         <div class="form-group">
-          <label>Lugar de Nacimiento:</label>
+          <label class="letra">Lugar de Nacimiento:</label>
           <input formControlName="lugarNacimiento" type="text" id="lugarNacimiento" class="form-control" required
             placeholder="Escribe tu ciudad de Nacimiento">
         </div>
 
         <div class="form-group">
-          <label>Seleccione una fecha Nacimiento:</label>
+          <label class="letra">Seleccione una fecha Nacimiento:</label>
           <input type="date" formControlName="fechaNacimiento" class="form-control">
         </div>
 
         <div class="form-group">
-          <label>Seleccione Rol :</label>
-          <select class="form-control" id="rol">
-            <option value="" disabled selected>Seleccione Rol para el usuario...</option>
-            <option value="1">admin</option>
-            <option value="2">user</option>
-          </select>
+          <label class="letra">Contraseña:</label>
+          <div class="input-group">
+            <input formControlName="password" type="password" id="password" class="form-control" required
+              placeholder="Escribe tu contraseña">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn" (click)="togglePasswordVisibility()">
+                <i class="fa fa-eye"></i>
+              </button>
+            </div>
+          </div>
         </div>
         <div class="row" style="margin-top: 15px;">
           <div class="col">
-            <button (click)="CrearUsuario()" class="btn btn-primary" type="submit" name="action">Crear Usuario</button>
+            <button (click)="CrearUsuario()" class="btn btn-primary letra" type="submit" name="action">Crear Usuario</button>
           </div>
 
           <div class="col">
-            <button type="button" class="btn btn-secondary btn-block" (click)="goBack()">Volver Atrás</button>
+            <button type="button" class="btn btn-secondary letra btn-block" (click)="goBack()">Volver Atrás</button>
           </div>
         </div>
-
       </form>
     </div>
   </div>
