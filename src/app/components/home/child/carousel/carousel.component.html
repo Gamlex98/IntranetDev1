@@ -1,0 +1,85 @@
+<div class="carousel auto-play" #carousel>
+  <div class="contenedorImagenTexto">
+    <div class="contenedorImagen img-fluid">
+      <ul class="slides img-fluid" #slides>
+        <li id="slide-1" class="slide img-fluid">
+          <img src="assets/img/carousel/1.jpg" alt="img1" (mouseenter)="pauseAutoPlay()" (mouseleave)="resumeAutoPlay()" />
+        </li>
+        <li id="slide-2" class="slide">
+          <img src="assets/img/carousel/2.jpg" alt="img2" (mouseenter)="pauseAutoPlay()" (mouseleave)="resumeAutoPlay()" />
+        </li>
+        <li id="slide-3" class="slide">
+          <img src="assets/img/carousel/3.jpg" alt="img3" (mouseenter)="pauseAutoPlay()" (mouseleave)="resumeAutoPlay()" />
+        </li>
+        <li id="slide-4" class="slide img-fluid">
+          <img src="assets/img/carousel/4.jpg" alt="img4" (mouseenter)="pauseAutoPlay()" (mouseleave)="resumeAutoPlay()" />
+        </li>
+        <li id="slide-5" class="slide">
+          <img src="assets/img/carousel/5.jpg" alt="img5" (mouseenter)="pauseAutoPlay()" (mouseleave)="resumeAutoPlay()" />
+        </li>
+        <li id="slide-6" class="slide">
+          <img src="assets/img/carousel/6.jpeg" alt="img6" (mouseenter)="pauseAutoPlay()" (mouseleave)="resumeAutoPlay()" />
+        </li>
+        <li id="slide-7" class="slide">
+          <img src="assets/img/carousel/7.jpg" alt="img7" (mouseenter)="pauseAutoPlay()" (mouseleave)="resumeAutoPlay()" />
+        </li>
+        <li id="slide-8" class="slide">
+          <img src="assets/img/carousel/8.jpg" alt="img8" (mouseenter)="pauseAutoPlay()" (mouseleave)="resumeAutoPlay()" />
+        </li>
+      </ul>
+    </div>
+    <div class="contenedorTexto">
+      <ul class="slides" #slides>
+        <li id="slide-1" class="slide">
+          <div class="textoContainer" *ngIf="activeIndex === 0">
+            <h2 style="text-align: start;">Inaguración oficina piso 1</h2>
+            <h3> Se encuentran los departamentos de : Tecnologias de la información, Talento Humano y Auditoría.</h3>
+          </div>
+          <div class="textoContainer" *ngIf="activeIndex === 1">
+            <h2>Integración año 2022</h2>
+            <!-- <h3>Texto descriptivo para la imagen 2</h3> -->
+          </div>
+          <div class="textoContainer" *ngIf="activeIndex === 2">
+            <h2 style="text-align: start;">Evento Deportivo</h2>
+            <h3>Partido de futbol entre las sedes de Pereira y la Romelia Dosquebradas. En la foto se puede apreciar a varios empleados de las sedes S01, S03, S04, S12, S25 y S21</h3>
+          </div>
+          <div class="textoContainer" *ngIf="activeIndex === 3">
+            <h2>Novena año 2022</h2>
+            <!-- <h3>Texto descriptivo para la imagen 4</h3> -->
+          </div>
+          <div class="textoContainer" *ngIf="activeIndex === 4">
+            <h2>Integración año 2022</h2>
+            <!-- <h3>Texto descriptivo para la imagen 5</h3> -->
+          </div>
+          <div class="textoContainer" *ngIf="activeIndex === 5">
+            <h2 style="text-align: start;">Ganadores concurso Hallowen 2022</h2>
+            <h3>Empleados de una de las sedes de Cartagena participando en el concurso de disfraces en Octubre de 2022 </h3>
+          </div>
+          <div class="textoContainer" *ngIf="activeIndex === 6">
+            <h2>Integración año 2022</h2>
+            <!-- <h3>Texto descriptivo para la imagen 7</h3> -->
+          </div>
+          <div class="textoContainer" *ngIf="activeIndex === 7">
+            <h2>Integración año 2022</h2>
+            <!-- <h3>Texto descriptivo para la imagen 8</h3> -->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <ul class="nav-dots">
+    <li class="dot"><a href="#slide-1" (click)="onDotClick(0, $event)"></a></li>
+    <li class="dot"><a href="#slide-2" (click)="onDotClick(1, $event)"></a></li>
+    <li class="dot"><a href="#slide-3" (click)="onDotClick(2, $event)"></a></li>
+    <li class="dot"><a href="#slide-4" (click)="onDotClick(3, $event)"></a></li>
+    <li class="dot"><a href="#slide-5" (click)="onDotClick(4, $event)"></a></li>
+    <li class="dot"><a href="#slide-6" (click)="onDotClick(5, $event)"></a></li>
+    <li class="dot"><a href="#slide-7" (click)="onDotClick(6, $event)"></a></li>
+    <li class="dot"><a href="#slide-8" (click)="onDotClick(7, $event)"></a></li>
+  </ul>
+  <ul class="nav-arrows">
+    <li class="arrow-left" (click)="onLeftArrowClick()"></li>
+    <li class="arrow-right" (click)="onRightArrowClick()"></li>
+  </ul>
+</div>

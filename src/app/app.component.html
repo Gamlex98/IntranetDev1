@@ -1,0 +1,10 @@
+
+
+<div *ngIf="sesionActiva">
+    <app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
+    <app-body [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-body>
+</div>
+
+<div *ngIf="!sesionActiva">
+    <app-login></app-login>
+</div>

@@ -1,0 +1,155 @@
+<div class="container">
+  <div class="recovery">
+    <h3> Creación de Usuarios Intranet</h3>
+    <form [formGroup]="formularioRegister" action="">
+
+      <div class="form-group">
+        <label >Usuario:</label>
+        <input formControlName="usuario" type="text" id="usuario" class="form-control" required placeholder="Digite su usuario">
+      </div>
+
+      <div class="form-group">
+        <label>Correo:</label>
+        <input formControlName="correo" type="text" id="correo" class="form-control" required placeholder="Digite su correo">
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <label>Nombre Completo:</label>
+        <input formControlName="nombreCompleto" type="text" id="nombreCompleto" class="form-control" required placeholder="Digite el nombre completo">
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <label>Seleccione Sede/Sucursal:</label>
+        <select class="form-control" id="sucursal">
+          <option value="" disabled selected>Seleccione Sede/Sucursal...</option>
+          <option value="1">S01</option>
+          <option value="2">S02</option>
+          <option value="3">S03</option>
+          <option value="4">S04</option>
+          <option value="5">S05</option>
+          <option value="6">S06</option>
+          <option value="7">S07</option>
+          <option value="8">S08</option>
+          <option value="9">S09</option>
+          <option value="10">S10</option>
+          <option value="11">S11</option>
+          <option value="12">S12</option>
+          <option value="13">S13</option>
+          <option value="14">S14</option>
+          <option value="15">S15</option>
+          <option value="16">S16</option>
+          <option value="17">S17</option>
+          <option value="18">S18</option>
+          <option value="19">S19</option>
+          <option value="20">S20</option>
+          <option value="21">S21</option>
+          <option value="23">S23</option>
+          <option value="24">S24</option>
+          <option value="25">S25</option>
+          <option value="26">S26</option>
+          <option value="27">S27</option>
+          <option value="28">S28</option>
+          <option value="29">S29</option>
+          <option value="30">S30</option>
+          <option value="32">S32</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Seleccione el Cargo:</label>
+        <select class="form-control" id="cargo">
+          <option value="" disabled selected>Seleccione ciudad Nacimiento...</option>
+          <option value="1">Administrador PDV</option>
+          <option value="2">Analista De Compras</option>
+          <option value="3">Analista De Nomina</option>
+          <option value="4">Aprendiz Sena</option>
+          <option value="5">Asistente Administrativo</option>
+          <option value="6">Asistente Comercial</option>
+          <option value="7">Asistente De Gestión Integral</option>
+          <option value="8">Asistente De Talento Humano</option>
+          <option value="9">Auditor</option>
+          <option value="10">Aux Administrativo</option>
+          <option value="11">Aux Calidad</option>
+          <option value="12">Aux Cartera</option>
+          <option value="13">Aux Contable</option>
+          <option value="14">Aux Cuarto Frio</option>
+          <option value="15">Aux Cuarto Frio - Aux Ruta</option>
+          <option value="16">Aux Cuarto Operario Montacarga</option>
+          <option value="17">Aux De Ruta</option>
+          <option value="18">Aux Importaciones</option>
+          <option value="19">Aux Impuestos</option>
+          <option value="20">Aux Ingenieria Y Logística</option>
+          <option value="21">Aux Mostrador</option>
+          <option value="22">Aux Mostrador - Cajero</option>
+          <option value="23">Aux Proceso</option>
+          <option value="24">Aux Proceso - Ruta</option>
+          <option value="25">Aux Servicios</option>
+          <option value="26">Aux Tecnologías De La Información</option>
+          <option value="27">Aux Tesorería</option>
+          <option value="28">Cajero</option>
+          <option value="29">Conductor</option>
+          <option value="30">Conductor Supernumerario</option>
+          <option value="31">Contadora</option>
+          <option value="32">Coord Administrativo</option>
+          <option value="33">Coord Mantenimiento Y Control De Vehículos</option>
+          <option value="34">Coord Tecnologías De La Información</option>
+          <option value="35">Coord Compras Internacionales</option>
+          <option value="36">Coord Talento Humano</option>
+          <option value="37">Coord De Importaciones</option>
+          <option value="38">Domicilio</option>
+          <option value="39">Ing Tecnologías De La Información</option>
+          <option value="40">Jefe Cuarto Frio</option>
+          <option value="41">Jefe Ingeniería Y Logística</option>
+          <option value="42">Jefe Sala De Proceso</option>
+          <option value="43">Mensajero</option>
+          <option value="44">Practicante Universitario</option>
+          <option value="45">Servicios Generales</option>
+          <option value="46">Supernumeraria Administrativa</option>
+          <option value="47">Supervisor Comercial</option>
+          <option value="48">Supervisor De Logística E Inventarios</option>
+          <option value="49">Tesorera</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Lugar de Nacimiento:</label>
+        <input formControlName="lugarNacimiento" type="text" id="lugarNacimiento" class="form-control" required placeholder="Escribe tu ciudad de Nacimiento">
+      </div>
+
+      <div class="form-group">
+        <label>Seleccione una fecha Nacimiento:</label>
+        <input type="date" formControlName="fechaNacimiento" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Seleccione Rol :</label>
+        <select class="form-control" id="rol">
+          <option value="" disabled selected>Seleccione Rol para el usuario...</option>
+          <option value="1">admin</option>
+          <!-- <option value="2">Aux Administrador</option> -->
+          <option value="2">user</option>
+        </select>
+      </div>
+
+<!--       <div class="form-group">
+        <label for="password">Contraseña:</label>
+        <input formControlName="password" type="text" id="password" class="form-control" required placeholder="Digite su contraseña">
+      </div> -->
+      
+      <div class="row" style="margin-top: 15px;">
+        <div class="col">
+          <button  (click)="CrearUsuario()" class="btn btn-primary" type="submit" name="action">Crear Usuario</button>
+        </div>
+
+        <div class="col">
+          <button routerLink="../admonUser" class="btn btn-secondary" type="submit" name="action">Ir a Administración de Usuarios</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

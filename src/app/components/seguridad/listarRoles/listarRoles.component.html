@@ -1,0 +1,55 @@
+<div class="row center-align">
+  <br><br>
+  <button routerLink="../admonUser" class="btn waves-effect waves-light" type="submit" name="action">
+    Ir a Administración Usuarios <i class="material-icons">cancel</i>
+  </button>
+</div>
+
+<h4>Listado de Roles Intranet</h4>
+
+<!-- Buscar en campo -->
+<fieldset class="border border-dark p-2">
+  <legend class="w-auto">Buscar en campo</legend>
+  <div class="row">
+    <div class="col-md-2">
+      <label for="buscaRol">Buscar:</label>
+    </div>
+
+    <form [formGroup]="formularioListaRoles" action="" class="col-md-4">
+      <div class="input-group">
+        <input formControlName="buscaRol" type="text" id="buscaRol" class="form-control custom-input" required placeholder="Puedes filtrar por: user / admin">
+        <div class="input-group-append">
+          <button (click)="aplicarBusqueda()" class="btn btn-primary" type="submit" name="action" style="margin-top: 10px;">
+            Aplicar Búsqueda <i class="material-icons rigth">how_to_reg</i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</fieldset>
+
+
+<fieldset>
+  <legend style="font-weight: bold;">Listado de Roles</legend>
+  <br/>
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Rol</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of listaRoles">
+        <td>{{u.id}}</td>
+        <td>{{u.nombreRol}}</td>
+      </tr>
+      <tr *ngFor="let u of listaRolesFiltrados">
+        <td>{{u.id}}</td>
+        <td>{{u.nombreRol}}</td>
+      </tr>
+      
+    </tbody>
+  </table>  
+</fieldset>
+

@@ -1,0 +1,110 @@
+<h4>Listado de usuarios</h4>
+
+<fieldset class="border border-dark p-2">
+  <legend class="w-auto">Ordenar</legend>
+  <div class="row">
+    <div class="col-md-2">
+      <label for="idSelectFiltroListUser">Ordenar por:</label>
+    </div>
+
+    <div class="col-md-2">
+      <select class="form-control" id="idSelectFiltroListUser" #selectFiltroListUser>
+        <option value="" disabled selected>defecto</option>
+        <option value="1">usuario</option>
+        <option value="2">sucursal</option>
+        <option value="3">autorizado</option>
+      </select>
+    </div>
+
+    <div class="col-md-2">
+      <label for="idSelectOrdenAscListUser">En orden:</label>
+    </div>
+
+    <div class="col-md-2">
+      <select class="form-control" id="idSelectOrdenAscListUser" #selectOrdenAscListUser>
+        <option value="" disabled selected>ascendente</option>
+        <option value="1">descendente</option>
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <button (click)="aplicarFiltroUser()" class="btn btn-primary" type="submit" name="action">
+        Aplicar Filtro <i class="material-icons rigth">how_to_reg</i>
+      </button>
+    </div>
+  </div>
+</fieldset>
+
+<!-- Buscar en campo -->
+<fieldset class="border border-dark p-2">
+  <legend class="w-auto">Buscar en campo</legend>
+  <div class="row">
+    <div class="col-md-2">
+      <label for="buscarUser">Buscar:</label>
+    </div>
+
+    <form [formGroup]="formularioListarUser" action="" class="col-md-4">
+      <div class="input-group">
+        <input formControlName="buscarUser" type="text" id="buscarUser" class="form-control custom-input" required placeholder="Qué desea buscar?">
+        <div class="input-group-append">
+          <button (click)="aplicarBusqueda()" class="btn btn-primary" type="submit" name="action" style="margin-top: 10px;">
+            Aplicar Búsqueda <i class="material-icons rigth">how_to_reg</i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="col-md-2">
+      <label for="idSelectBuscarListUser">en el campo:</label>
+    </div>
+
+    <div class="col-md-2">
+      <select class="form-control" id="idSelectBuscarListUser" #selectBuscarListUser>
+        <option value="usuario">usuario</option>
+        <option value="sucursal">sucursal</option>
+        <option value="autorizado">autorizado</option>
+      </select>
+    </div>
+  </div>
+</fieldset>
+
+
+<fieldset>
+  <legend style="font-weight: bold;">Listado de usuarios</legend>
+  <br/>
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Usuario</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Nombre completo</th>
+        <th scope="col">Sucursal</th>
+        <th scope="col">Autorizado</th>
+        <th scope="col">Restablecer contraseña</th>
+        <th scope="col">Editar usuario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of listaUsuario">
+        <td>{{u.usuario}}</td>
+        <td>{{u.correo}}</td>
+        <td>{{u.nombreCompleto}}</td>
+        <td>{{u.sucursal}}</td>
+        <td>{{u.autorizado}}</td>
+        <td>
+          <button class="btn btn-success">Restablecer Contraseña</button>
+        </td>
+        <td>
+          <button class="btn btn-success">Editar Usuario</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>  
+</fieldset>
+
+<div class="row center-align">
+  <br><br>
+  <button routerLink="../admonUser" class="btn waves-effect waves-light" type="submit" name="action">
+    Ir a Administración Usuarios <i class="material-icons rigth">cancel</i>
+  </button>
+</div>

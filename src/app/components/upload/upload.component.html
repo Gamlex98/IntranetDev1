@@ -1,0 +1,140 @@
+
+<h1 class="titulo"> Enviar Informacion a la BD </h1>
+<br>
+  <form #documentForm="ngForm" (ngSubmit)="enviarInfo(documentForm)">
+    <div class="form-group">
+      <label for="tipo">Tipo :</label>
+      <select class="form-control" id="IdSeleccionarArea" [(ngModel)]="documento.tipo" name="tipo" required>
+        <option value="" disabled selected>Seleccione el Tipo...</option>
+        <option value="documento">Comunicados</option>
+        <option value="formato">Formato</option>
+        <option value="manual">Manual / Guia</option>
+        <option value="Logo">Logo</option>
+      </select>
+    </div>
+
+<div *ngIf="documento.tipo === 'documento' ||  documento.tipo === 'formato' || documento.tipo === 'manual'">
+    <div class="form-group">
+      <label for="nombre">Nombre :</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Escribe el nombre para el documento" class="form-control" [(ngModel)]="documento.nombre" required>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="fecha">Fecha :</label>
+      <input type="date" id="fecha" name="fecha" class="form-control" style="width: 150px;" [(ngModel)]="documento.fecha" required>
+    </div>  
+
+    <br>
+    <div class="form-group">
+      <label for="area">Area:</label>
+      <select class="form-control" id="IdSeleccionarArea" [(ngModel)]="documento.area" name="area" required>
+        <option value="" disabled selected>Seleccione el Área...</option>
+        <option value="administrativa">Administrativa</option>
+        <option value="auditoria">Auditoría</option>
+        <option value="calidad">Calidad</option>
+        <option value="comercial">Comercial</option>
+        <option value="contabilidad">Contabilidad</option>
+        <option value="gerencia_financiera">Gerencia Financiera</option>
+        <option value="gerencia_administrativa">Gerencia Administrativa</option>
+        <option value="mantenimiento">Mantenimiento</option>
+        <option value="importaciones">Importaciones</option>
+        <option value="servicios_generales">Servicios Generales</option>
+        <option value="sig">Sistemas Integrados de Gestión</option>
+        <option value="seguridad_salud">Seguridad y Salud en el Trabajo</option>
+        <option value="talento_humano">Talento Humano</option>
+        <option value="tesoreria">Tesorería</option>
+        <option value="ti">Tecnologías de la Información</option>
+      </select>
+    </div>
+    
+    <br>
+    <div class="form-group">
+      <label for="archivo">Carpeta :</label>
+      <select class="form-control" (change)="onFolderSelected($event)">
+        <option value="" disabled selected>Seleccione la Carpeta...</option>
+        <option value="documentos/administrativa/">Administrativa Comunicado</option>
+        <option value="documentos/auditoria/">Auditoria Comunicado</option>
+        <option value="formatos/auditoria/">Auditoria Formatos</option>
+        <option value="documentos/calidad/">Calidad</option>
+        <option value="formatos/calidad/">Calidad Formatos</option>
+        <option value="manuales/calidad/">Calidad Manuales</option>
+        <option value="documentos/comercial/">Comercial</option>
+        <option value="documentos/contabilidad/">Contabilidad Comunicado</option>
+        <option value="documentos/gerencia_financiera/">Gerencia Financiera Comunicados</option>
+        <option value="formatos/gerencia_administrativa/">Gerencia Administrativa Formatos</option>
+        <option value="formatos/mantenimiento/">Mantenimiento Formatos</option>
+        <option value="documentos/importaciones/">Importaciones</option>
+        <option value="formatos/servicios_generales/">Servicios Generales Formatos</option>
+        <option value="manuales/servicios_generales/">Servicios Generales Manuales</option>
+        <option value="documentos/sig/">Sistemas Integrados de Gestion Comunicados</option>
+        <option value="formatos/sig/">Sistemas Integrados de Gestion Formatos</option>
+        <option value="manuales/sig/">Sistemas Integrados de Gestion Manuales</option>
+        <option value="manuales/seguridad_salud/">Seguridad y Salud en el Trabajo Manuales</option>
+        <option value="documentos/talento_humano/">Talento Humano Comunicado</option>
+        <option value="formatos/talento_humano/">Talento Humano Formatos</option>
+        <option value="documentos/tesoreria/">Tesoreria</option>
+        <option value="documentos/ti/">Tecnologias de la Informacion Comunicados</option>
+        <option value="manuales/ti/">Tecnologias de la Informacion Manuales</option>
+      </select>
+      <br>
+      <div class="mb-3">
+        <input class="form-control" type="file" id="archivo" name="archivo" (change)="onFileSelected($event)" required>
+      </div>
+    </div>
+    
+  <br>
+  <div class="form-group">
+    <label for="url">URL :</label>
+    <input type="text" id="url" name="url" placeholder="Url del archivo a enviar a la BD" class="form-control" [(ngModel)]="direccion.url" required >
+  </div>
+
+  <br>
+    <!-- <button type="submit" class="btn btn-primary"> Cargar Información </button> -->
+  <button type="submit" class="btn btn-primary" color="primary" [disabled]="enviando">
+    <span *ngIf="!enviando"> Enviar </span>
+    <span *ngIf="enviando"> Enviando... </span>
+  </button>
+
+  <mat-progress-bar mode="determinate" [value]="porcentaje" style="margin-top: 20px;"></mat-progress-bar>
+  <div *ngIf="!enviando && porcentaje === 100" class="letraEnvio">
+    Envío Exitoso
+  </div>
+</div>
+
+<div *ngIf="documento.tipo === 'Logo'">
+    <div class="form-group">
+      <label for="nombre">Nombre :</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Escribe el nombre del Logo" class="form-control" [(ngModel)]="documento.nombre" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="archivo">Carpeta :</label>
+      <select class="form-control" (change)="onFolderSelected($event)">
+        <option value="" disabled selected>Seleccione la Carpeta...</option>
+        <option value="logos/">Logo</option>
+      </select>
+      <br>
+      <div class="mb-3">
+        <input class="form-control" type="file" id="archivo" name="archivo" (change)="onFileSelected($event)" required>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="url">URL :</label>
+      <input type="text" id="url" name="url" placeholder="Url del archivo a enviar a la BD" class="form-control" [(ngModel)]="direccion.url" required>
+    </div>
+  
+    <button type="submit" class="btn btn-primary" color="primary" [disabled]="enviando">
+      <span *ngIf="!enviando">Enviar</span>
+      <span *ngIf="enviando">Enviando...</span>
+    </button>
+  
+    <mat-progress-bar mode="determinate" [value]="porcentaje" style="margin-top: 20px;"></mat-progress-bar>
+    <div *ngIf="!enviando && porcentaje === 100" class="letraEnvio">
+      Envío Exitoso
+    </div>
+</div>
+
+</form>
+  
+  
