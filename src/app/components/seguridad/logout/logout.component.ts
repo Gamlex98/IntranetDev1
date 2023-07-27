@@ -23,7 +23,6 @@ export class LogoutComponent implements OnInit{
     this.servicioSessionStorage.EliminarDatosSesion();
     this.serviceSeguridad.RefrescarDatosSesion(new DatosSesionModel());
     this.router.navigate(["/Home"]);
-    window.location.reload();
   }
 
 }

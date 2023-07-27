@@ -80,7 +80,7 @@
         <th scope="col">Nombre completo</th>
         <th scope="col">Sucursal</th>
         <th scope="col">Autorizado</th>
-        <th scope="col">Restablecer contraseña</th>
+        <!-- <th scope="col">Restablecer contraseña</th> -->
         <th scope="col">Editar usuario</th>
       </tr>
     </thead>
@@ -91,11 +91,11 @@
         <td>{{u.nombreCompleto}}</td>
         <td>{{u.sucursal}}</td>
         <td>{{u.autorizado}}</td>
-        <td>
+<!--         <td>
           <button class="btn btn-success">Restablecer Contraseña</button>
-        </td>
+        </td> -->
         <td>
-          <button class="btn btn-success">Editar Usuario</button>
+          <button class="btn btn-success" routerLink="/editar/{{u.id}}">Editar Usuario</button>
         </td>
       </tr>
     </tbody>

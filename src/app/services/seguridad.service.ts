@@ -158,8 +158,9 @@ export class SeguridadService {
     //console.log("id a enviar en actualizarUserServicio: " +user.id);
     return this.http.patch(`${this.urlLoopback}/usuarios/${user.id}`, {
       nombreCompleto: user.nombreCompleto,
-      password: user.password,
-      sede: user.sucursal,
+      correo : user.correo,
+      fechaNacimiento: user.fechaNacimiento,
+      sucursal: user.sucursal,
       autorizado: user.autorizado,
     });
   }
@@ -168,7 +169,7 @@ export class SeguridadService {
   ActualizarRoleUsuarioService(role: string, idUser: string): Observable<any> {
     //console.log("role: " + role);
     //console.log("idUser: " + idUser);
-    return this.http.patch(`${this.urlLoopback}/usuarios/${idUser}/rols`, {
+    return this.http.patch(`${this.urlLoopback}/usuarios/${idUser}/rol`, {
       nombreRol: role,
     });
   }

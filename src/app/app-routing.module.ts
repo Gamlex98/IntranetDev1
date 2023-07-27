@@ -11,6 +11,8 @@ import { AdmonUserComponent } from './components/seguridad/admonUser/admonUser.c
 import { ListarUsuariosComponent } from './components/seguridad/listarUsuarios/listarUsuarios.component';
 import { ListarRolesComponent } from './components/seguridad/listarRoles/listarRoles.component';
 import { LogoutComponent } from './components/seguridad/logout/logout.component';
+import { PerfilUserComponent } from './components/perfilUser/perfilUser.component';
+import { EditarComponent } from './components/seguridad/editar/editar.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home',pathMatch:'full'},
@@ -29,6 +31,8 @@ const routes: Routes = [
   {path: 'admonUser', component: AdmonUserComponent},
   {path: 'listarUsers', component: ListarUsuariosComponent},
   {path: 'listaRoles', component: ListarRolesComponent},
+  {path: 'perfil', component: PerfilUserComponent},
+  {path: 'editar/:id', component: EditarComponent},
 
 ];
 

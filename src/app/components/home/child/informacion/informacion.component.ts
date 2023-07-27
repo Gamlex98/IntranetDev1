@@ -46,8 +46,6 @@ export class InformacionComponent implements OnInit, AfterViewInit {
   }
 
   getDataUsersWithBirthday(month: string) {
-
-    // console.log('Test entrada del Select Date', month);
     switch (month) {
       case '01':
       case '02':
@@ -62,17 +60,44 @@ export class InformacionComponent implements OnInit, AfterViewInit {
       case '11':
       case '12':
         this.homeService.getDataUserByBirthMonth(month).subscribe((users: userModel[]) => {
-          this.usersWithBirthday = users;
-          this.dataSource.data = this.usersWithBirthday; // Asignar los datos al MatTableDataSource
-          // console.log(`Empleados con cumpleaños en el mes ${month}:`, this.usersWithBirthday);
+          // Reordenar los datos después de recibirlos del servicio
+          this.usersWithBirthday = this.sortDataByBirthday(users);
+          this.dataSource.data = this.usersWithBirthday;
         });
         break;
       default:
         this.usersWithBirthday = [];
-        this.dataSource.data = this.usersWithBirthday; // Asignar los datos al MatTableDataSource
+        this.dataSource.data = this.usersWithBirthday;
         break;
     }
   }
+
+  sortDataByBirthday(users: userModel[]): userModel[] {
+    const today = new Date();
+    const todayBirthdayUsers: userModel[] = [];
+    const otherUsers: userModel[] = [];
+  
+    // Separar los usuarios en dos grupos: los que cumplen años hoy y los demás
+    for (const user of users) {
+      const birthday = new Date(user.fechaNacimiento);
+      if (today.getUTCMonth() === birthday.getUTCMonth() && today.getUTCDate() === birthday.getUTCDate()) {
+        todayBirthdayUsers.push(user);
+      } else {
+        otherUsers.push(user);
+      }
+    }
+  
+    // Ordenar los usuarios que cumplen años hoy por el día de cumpleaños
+    todayBirthdayUsers.sort((a, b) => {
+      const dayA = new Date(a.fechaNacimiento).getDate();
+      const dayB = new Date(b.fechaNacimiento).getDate();
+      return dayA - dayB;
+    });
+  
+    // Combinar ambos grupos y devolver el resultado
+    return [...todayBirthdayUsers, ...otherUsers];
+  }
+  
 
   getMonthName(monthValue: string): string {
     const month = this.months.find(m => m.value === monthValue);
@@ -86,5 +111,4 @@ export class InformacionComponent implements OnInit, AfterViewInit {
     return today.getUTCMonth() === birthday.getUTCMonth() && today.getUTCDate() === birthday.getUTCDate();
   }
   
-
 }

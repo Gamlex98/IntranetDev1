@@ -138,11 +138,13 @@ export class RegisterUserComponent implements OnInit {
               icon: 'error',
               title: `Usuario ya existe !!`,
               text: `Ya hay un usuario creado con estos datos...`,
-              showConfirmButton: true,
-              confirmButtonText: 'Entendido'
+              showConfirmButton: false,
+              timer: 2100
+            }).then(() => {
+              setTimeout(() => {
+                window.location.reload(); // Refrescamos la página después de 2 segundos
+              }, 2200);
             });
-
-            this.router.navigate(['./home']);
 
           } else {
             console.log("No hay  usuario  y por eso se va a crear");
@@ -163,12 +165,12 @@ export class RegisterUserComponent implements OnInit {
                   Swal.fire({
                     position: 'center',
                     icon: 'error',
-                    title: `Error en la creación del usuario !!`,
-                    text: `Algo falló en la creación de usuario ...`,
+                    title: `Error en la creación de la cuenta !!`,
+                    text: `Algo falló en la creación de la cuenta ...`,
                     showConfirmButton: true,
                     confirmButtonText: 'Entendido'
                   });
-                  this.router.navigate(['./home']);
+                  window.location.reload();
                 }
                 return;
               },
@@ -193,8 +195,8 @@ export class RegisterUserComponent implements OnInit {
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: `Creación de usuario exitosa !!`,
-            text: `El usuario ha sido creado correctamente`,
+            title: `Creación de cuenta exitosa !!`,
+            text: `Tu cuenta ha sido creado correctamente`,
             showConfirmButton: false,
             timer: 1000
           }).then(() => {
@@ -207,9 +209,13 @@ export class RegisterUserComponent implements OnInit {
             position: 'center',
             icon: 'error',
             title: `Error al crear el usuario !!`,
-            text: `Algo falló en la creación de usuario-Role...`,
-            showConfirmButton: true,
-            confirmButtonText: 'Entendido'
+            text: `Algo falló en la creación de la cuenta...`,
+            showConfirmButton: false,
+            timer: 1500
+          }).then(() => {
+            setTimeout(() => {
+              window.location.reload(); // Refrescamos la página después de 2 segundos
+            }, 1600);
           });
         }
       },

@@ -51,6 +51,11 @@ import { AdmonUserComponent } from './components/seguridad/admonUser/admonUser.c
 import { ListarRolesComponent } from './components/seguridad/listarRoles/listarRoles.component';
 import { LogoutComponent } from './components/seguridad/logout/logout.component';
 import { RegisterUserComponent } from './components/seguridad/register-user/register-user.component';
+import { PerfilUserComponent } from './components/perfilUser/perfilUser.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
+import { EditarComponent } from './components/seguridad/editar/editar.component';
+
 
 @NgModule({
 
@@ -79,8 +84,10 @@ import { RegisterUserComponent } from './components/seguridad/register-user/regi
     BrigadaComponent,
     ListarRolesComponent,
     LogoutComponent,
-    RegisterUserComponent
-    
+    RegisterUserComponent,
+    PerfilUserComponent,
+    EditarComponent
+
   ],
   imports: [
     BrowserModule,
@@ -113,6 +120,8 @@ import { RegisterUserComponent } from './components/seguridad/register-user/regi
     ImageModule,
     FieldsetModule,
     TabViewModule,
+    MatMenuModule,
+    MatDividerModule
   ],
   exports: [
     ListarUsuariosComponent
@@ -124,4 +133,5 @@ import { RegisterUserComponent } from './components/seguridad/register-user/regi
             
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }
