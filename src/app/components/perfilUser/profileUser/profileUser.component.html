@@ -1,0 +1,47 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="profile-card p-4 text-center rounded-lg shadow profile-card-green">
+        <img class="profile-picture rounded-circle mt-4" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+        <h4 class="font-weight-bold mt-3">{{nombreUser}}</h4>
+        <p class="text-black-50">{{correoUser}}</p>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="profile-details p-4 rounded-lg shadow profile-details-green">
+        <h4 class="mb-4" style="font-weight: bold;color: black;">Bienvenido a tu Perfil</h4>
+        <div class="table-responsive">
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td class="font-weight-bold py-3">Nombre:</td>
+                <td class="py-3">{{nombreUser}}</td>
+              </tr>
+              <tr>
+                <td class="font-weight-bold py-3">Correo:</td>
+                <td class="py-3">{{correoUser}}</td>
+              </tr>
+              <tr>
+                <td class="font-weight-bold py-3">Sucursal:</td>
+                <td class="py-3">{{sucursal}}</td>
+              </tr>
+              <tr>
+                <td class="font-weight-bold py-3">Cargo:</td>
+                <td class="py-3">{{cargo}}</td>
+              </tr>
+              <tr>
+                <td class="font-weight-bold py-3">Ciudad Nacimiento:</td>
+                <td class="py-3">{{ciudad}}</td>
+              </tr>
+              <tr>
+                <td class="font-weight-bold py-3">Fecha Nacimiento:</td>
+                <td class="py-3">{{fecha  | date:'yyyy-MM-dd' : 'UTC' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+         <div class="mt-5 text-center"><button class="btn btn-success" type="button" routerLink="/home">Regresar al Menu Principal</button></div> 
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,9 +22,9 @@ export class EditarComponent implements OnInit {
   fecha !: string;
   perfil !: string;
   autorizado !: boolean;
+  rol !: string;
 
-  idRol !: string;
-  rol !: any;
+  // idRol !: string;
 
   constructor(
     private fb: FormBuilder,
@@ -51,6 +51,7 @@ export class EditarComponent implements OnInit {
       autorizado: ["", [Validators.required]],
     });
   }
+
   //Funcion
 
   //Método para que los parámetros del formulario se inicialicen
@@ -66,19 +67,20 @@ export class EditarComponent implements OnInit {
         this.usuario = data.usuario;
         this.formularioEditarUser.controls['nombreCompleto'].setValue(data.nombreCompleto);
         this.formularioEditarUser.controls['correo'].setValue(data.correo);
-        
-        // Formatear la fecha correctamente antes de asignarla al formulario
-        // const formattedDate = formatDate(data.fechaNacimiento, 'yyyy-MM-dd', 'es');
-        // this.formularioEditarUser.controls['fechaNacimiento'].setValue(formattedDate);
-
+      
         // Eliminar la información de la zona horaria y formatear la fecha en "yyyy-MM-dd"
         const dateSinZonaHoraria = new Date(data.fechaNacimiento).toISOString().split('T')[0];
         this.formularioEditarUser.controls['fechaNacimiento'].setValue(dateSinZonaHoraria);
 
         this.sucursal = data.sucursal;
         this.formularioEditarUser.controls['sucursal'].setValue(this.sucursal);
-        this.autorizado = data.autorizado;  
+        this.rol = data.rol.nombreRol;
 
+        // console.log('Rol:',this.rol);
+        this.formularioEditarUser.controls['rol'].setValue(this.rol);
+        this.autorizado = data.autorizado;
+        this.formularioEditarUser.controls['autorizado'].setValue(this.autorizado);
+  
       },
       error: (e) => console.log(e)
     });

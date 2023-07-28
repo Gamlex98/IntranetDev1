@@ -1,8 +1,29 @@
-.logoFresmar {
-    width:30%;
-    height:50%;
-}
+/* styles.css */
 
+/* styles.css */
+
+/* Establecer el contenedor como flex y alinear los elementos al centro */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Alinear el componente app-perfilUser a la izquierda y eliminar los márgenes */
+  app-perfilUser {
+    margin-right: -150px; /* Eliminar el margen derecho */
+    margin-left: 0; /* Ajustar el margen izquierdo según tu preferencia */
+  }
+  
+  /* Alinear el logo al centro */
+  .logoFresmar {
+    margin-left: 25px;
+    width: 43%;
+    height: auto;
+    margin: 0 auto; /* Alinear horizontalmente el logo al centro */
+    display: block; /* Asegurarse de que el logo sea un bloque para que ocupe el ancho máximo */
+  }
+  
 
 .sidebar {
     width: calc(100% - 5rem);

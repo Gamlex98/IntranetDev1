@@ -66,7 +66,7 @@
       <div class="form-field">
         <label class="form-label">Rol </label>
         <select class="form-select" id="idRol" formControlName="rol">
-          <option value="" disabled></option>
+          <option [ngValue]="rol">{{rol}}</option>
           <option value="1">admin</option>
           <option value="2">user</option>
           <!-- Otras opciones de perfil -->
@@ -77,6 +77,7 @@
       <div class="form-field">
         <label class="form-label">Autorizado</label>
         <select class="form-select" id="idAutorizado" formControlName="autorizado">
+          <option [ngValue]="autorizado">{{autorizado}}</option>
           <option value="1">true</option>
           <option value="2">false</option>
         </select>

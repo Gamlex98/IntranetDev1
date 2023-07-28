@@ -13,6 +13,8 @@ import { ListarRolesComponent } from './components/seguridad/listarRoles/listarR
 import { LogoutComponent } from './components/seguridad/logout/logout.component';
 import { PerfilUserComponent } from './components/perfilUser/perfilUser.component';
 import { EditarComponent } from './components/seguridad/editar/editar.component';
+import { ChangePassComponent } from './components/perfilUser/changePass/changePass.component';
+import { ProfileUserComponent } from './components/perfilUser/profileUser/profileUser.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home',pathMatch:'full'},
@@ -33,7 +35,9 @@ const routes: Routes = [
   {path: 'listaRoles', component: ListarRolesComponent},
   {path: 'perfil', component: PerfilUserComponent},
   {path: 'editar/:id', component: EditarComponent},
-
+  {path: 'resetPass/:id',component: ChangePassComponent},
+  {path: 'profileUser/:id',component: ProfileUserComponent},
+  
 ];
 
 @NgModule({

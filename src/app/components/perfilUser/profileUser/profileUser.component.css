@@ -1,0 +1,50 @@
+/* Custom CSS for profile card - green */
+.profile-card-green {
+    background-color: #84a78d;
+    border: 2px solid #8bbf8a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-card img {
+    border: 5px solid #fff;
+  }
+  
+  /* Custom CSS for profile details - green */
+  .profile-details-green {
+    background-color: #84a78d;
+    border: 2px solid #8bbf8a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Custom CSS for table cells */
+  .table td {
+    border: none;
+  }
+  
+  .table td:first-child {
+    font-weight: bold;
+    width: 150px;
+  }
+  
+  /* Custom CSS for table responsive */
+  .table-responsive {
+    border-radius: 10px;
+  }
+  
+  /* Custom CSS for table rows and title */
+  .table tbody tr {
+    border-bottom: 1px solid #8bbf8a;
+  }
+  
+  .table td {
+    padding: 15px 20px;
+  }
+  
+  /* Custom CSS for profile details title */
+  .profile-details h4 {
+    color: #8bbf8a;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  

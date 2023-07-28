@@ -37,11 +37,7 @@ export class SeguridadService {
   Login(Credentials: CredencialesUserModel): Observable<any> {
     console.log('usuario:', Credentials.usuario, typeof Credentials.usuario);
     console.log('password:', Credentials.password, typeof Credentials.password);
-    console.log(
-      'autorizado:',
-      Credentials.autorizado,
-      typeof Credentials.autorizado
-    );
+    console.log('autorizado:',Credentials.autorizado,typeof Credentials.autorizado);
 
     return this.http.post(`${this.urlLoopback}/LoginT`, {
       usuario: Credentials.usuario,
@@ -120,7 +116,7 @@ export class SeguridadService {
   SolicitarUser_id(id: string): Observable<any> {
     //console.log("id a enviar en servicioSeguridad.SolicitarUser_id: " + id);
     return this.http.get(
-      `${this.urlLoopback}/usuarios/${id}`,
+      `${this.urlLoopback}/usuarios/${id}?filter={"include":["rol"]}`,
       // return this.http.get(`${this.urlLoopback}/usuarios/${id}?filter={"include":["role"]}`,
       {}
     );

@@ -12,8 +12,10 @@ export class ListarRolesComponent implements OnInit {
   @ViewChild('selectBuscarListRoles') selectBuscarListRoles: any;
 
 
-  listaRoles: RolModel []=[];
-  listaRolesFiltrados : RolModel []=[];
+  listaRoles: RolModel [ ] = [ ];
+  listaRolesFiltrados : RolModel [] = [];
+
+  idUser !: string;
 
   formularioListaRoles : FormGroup = new FormGroup({});
   constructor(
@@ -50,19 +52,32 @@ export class ListarRolesComponent implements OnInit {
         } else {
           this.listaRolesFiltrados = datos;
         }
+  
+        // Obtener los nombres de todos los usuarios en la listaRolesFiltrados
+        this.listaRolesFiltrados.forEach((rol: RolModel) => {
+          if (rol.usuarioId) {
+            this.servicioSeguridad.SolicitarUser_id(rol.usuarioId).subscribe({
+              next: (data: any) => {
+                rol.nombreCompleto = data.nombreCompleto;
+                rol.cargo = data.cargo;
+              },
+              error: (e) => console.log(e)
+            });
+          }
+        });
+  
         console.log('DataRoles:', this.listaRolesFiltrados);
       },
       error: (e) => console.log(e)
     });
   }
   
-
+  
+  
 //Busca lo que el usuario desea
 aplicarBusqueda() {
   let buscar = this.formularioListaRoles.controls['buscaRol'].value;
   this.listarRolesBusqueda(buscar);
 }
-
-
 
 }

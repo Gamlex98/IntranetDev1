@@ -55,6 +55,8 @@ import { PerfilUserComponent } from './components/perfilUser/perfilUser.componen
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
 import { EditarComponent } from './components/seguridad/editar/editar.component';
+import { ChangePassComponent } from './components/perfilUser/changePass/changePass.component';
+import { ProfileUserComponent } from './components/perfilUser/profileUser/profileUser.component';
 
 
 @NgModule({
@@ -86,7 +88,9 @@ import { EditarComponent } from './components/seguridad/editar/editar.component'
     LogoutComponent,
     RegisterUserComponent,
     PerfilUserComponent,
-    EditarComponent
+    EditarComponent,
+    ChangePassComponent,
+    ProfileUserComponent
 
   ],
   imports: [

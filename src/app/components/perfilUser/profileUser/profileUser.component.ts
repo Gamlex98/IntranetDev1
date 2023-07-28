@@ -1,26 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
 import { SeguridadService } from 'src/app/services/seguridad.service';
-import Swal from 'sweetalert2';
-import { userModel } from 'src/app/models/user.model';
 import { SessionStorageService } from 'src/app/services/sessionStorage.service';
 import { DatosSesionModel } from 'src/app/models/datos-sesion.model';
 
 @Component({
-  selector: 'app-perfilUser',
-  templateUrl: './perfilUser.component.html',
-  styleUrls: ['./perfilUser.component.css']
+  selector: 'app-profileUser',
+  templateUrl: './profileUser.component.html',
+  styleUrls: ['./profileUser.component.css']
 })
-export class PerfilUserComponent implements OnInit {
-
+export class ProfileUserComponent implements OnInit {
   idUser !: string;
   nombreUser !: string;
   correoUser !: string;
+  sucursal !: string;
+  cargo !: string;
+  ciudad !: string;
+  fecha !: string;
 
   dataSesion : DatosSesionModel | null = null;
+
   constructor(
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private servicioSeguridad: SeguridadService,
     private router: Router,
     private sessionStorage : SessionStorageService
@@ -48,6 +50,10 @@ export class PerfilUserComponent implements OnInit {
         // console.log('Nombre:',this.nombreUser);
         this.correoUser = data.correo;
         // console.log('Correo:',this.correoUser);
+        this.sucursal = data.sucursal;
+        this.cargo = data.cargo;
+        this.ciudad = data.lugarNacimiento;
+        this.fecha = data.fechaNacimiento;
       },
       error: (e) => console.log(e)
     });
@@ -57,4 +63,5 @@ export class PerfilUserComponent implements OnInit {
     this.sessionStorage.EliminarDatosSesion();
     window.location.reload();
   }
+  
 }

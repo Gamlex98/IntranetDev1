@@ -88,11 +88,11 @@ export const navbarData: INavbarData[] = [
         external:true,
         rolesToShow: ['admin','user']
     },    
-    {
+/*     {
         routeLink: 'logout',
         icon: 'fal fa-sign-in',
         label: 'Cerrar Sesión',
         rolesToShow: ['admin','user']
-    }
+    } */
 ];
 
