@@ -1,10 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 :host {
-  --marquee-width: 25%;
+  --marquee-width: 35%;
   --marquee-height: 5vh;
   --marquee-elements-displayed: 5;
   --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+}
+/* 
+app-perfilUser {
+  margin-left: 70%; 
+  transform: translateY(-30%);
+} */
+
+.marquee {
+  width: var(--marquee-width);
+  height: var(--marquee-height);
+  background-color: #079b02;
+  color: white;
 }
 
 .marquee-content:hover {
@@ -16,17 +28,8 @@
 }
 
 * {
-  margin: 0px;
+  margin: none;
   padding: 0;
-}
-
-.marquee {
-    width: var(--marquee-width);
-    height: var(--marquee-height);
-    background-color: #079b02;
-    color: white;
-    position: relative;
-    margin-left: auto; /* Añade esta línea */
 }
 
 .marquee:before,
@@ -41,12 +44,12 @@
 
 .marquee:before {
   left: 0;
-  background: linear-gradient(to right, #e0e0e0 0%, transparent 100%);
+  background: linear-gradient(to right, #ffffff 0%, transparent 100%);
 }
 
 .marquee:after {
   right: 0;
-  background: linear-gradient(to left, #cecece 0%, transparent 100%);
+  background: linear-gradient(to left, #ffffff 0%, transparent 100%);
 }
 
 .marquee-content {

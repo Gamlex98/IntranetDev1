@@ -1,52 +1,47 @@
-
-    <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
-        <div class="logo-container">
-            <button class="logo" (click)="togglecollapse()">
-                <img src="assets/logo.png" alt="Logo">
-            </button>
-            <div class="logo-text" @fadeInOut *ngIf="collapsed">Fresmar</div>
-            <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
-                <i class="fal fa-times close-icon"></i>
-            </button>
-        </div>
-        <div class="scrollwrap scrollwrap_delayed">
-            <ul class="sidenav-nav">
-                <li class="sidenav-nav-item" *ngFor="let data of navData" >
-                    <a class="sidenav-nav-link" (click)="handleClick(data)"
-                        *ngIf="data.items && data.items.length > 0 || !data.external"
-                        [routerLink]="[data.routeLink]"
-                        routerLinkActive="active"
-                        [ngClass]="getActiveClass(data)"
-                        >
-                        <i class="sidenav-link-icon" [class]="data.icon"></i>
-                        <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
-                            {{data.label}}
-                        </span>
-                        <i *ngIf="data.items && collapsed" class="menu-collapse-icon"
-                            [ngClass]="!data.expanded ? 'fal fa-angle-right' : 'fal fa-angle-down'"
-                        >
-                        </i>
-                     </a>
-                    <a class="sidenav-nav-link" 
-                        *ngIf="data.external"
-                        [href]="data.href"
-                        target="_blank"
-                        (click)="shrinkItems(data)"
-                     >
-                        <i class="sidenav-link-icon" [class]="data.icon"></i>
-                        <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
-                           {{data.label}}
-                        </span>
-                     </a>
-                    <div *ngIf="collapsed && data.items && data.items.length > 0">
-                        <app-sublevel-menu
-                            [data]="data"
-                            [collapsed]="collapsed"
-                            [multiple]="multiple"
-                            [expanded]="data.expanded"
-                        ></app-sublevel-menu>
-                    </div>
-                </li>
-            </ul>
-        </div>
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+    <div class="logo-container">
+        <button class="logo" (click)="togglecollapse()">
+            <img src="assets/logo.png" alt="Logo">
+        </button>
+        <div class="logo-text" @fadeInOut *ngIf="collapsed">Fresmar</div>
+        <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+            <i class="fal fa-times close-icon"></i>
+        </button>
     </div>
+    <div class="scrollwrap scrollwrap_delayed">
+        <ul class="sidenav-nav">
+            <li class="sidenav-nav-item" *ngFor="let data of navData">
+                <a class="sidenav-nav-link" (click)="handleClick(data)"
+                    *ngIf="data.items && data.items.length > 0 || !data.external" [routerLink]="[data.routeLink]"
+                    routerLinkActive="active" [ngClass]="getActiveClass(data)">
+                    <i class="sidenav-link-icon" [class]="data.icon"></i>
+                    <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                        {{data.label}}
+                    </span>
+                    <i *ngIf="data.items && collapsed" class="menu-collapse-icon"
+                        [ngClass]="!data.expanded ? 'fal fa-angle-right' : 'fal fa-angle-down'">
+                    </i>
+                </a>
+                <a class="sidenav-nav-link" *ngIf="data.external" [href]="data.href" target="_blank"
+                    (click)="shrinkItems(data)">
+                    <i class="sidenav-link-icon" [class]="data.icon"></i>
+                    <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                        {{data.label}}
+                    </span>
+                </a>
+                <div *ngIf="collapsed && data.items && data.items.length > 0">
+                    <app-sublevel-menu [data]="data" [collapsed]="collapsed" [multiple]="multiple"
+                        [expanded]="data.expanded"></app-sublevel-menu>
+                </div>
+            </li>
+            <div *ngIf="collapsed">
+                <a title="contador de visitas" class="contador-visitas">
+                    <img src="https://counter3.optistats.ovh/private/contadorvisitasgratis.php?c=hxbag9xm85c9t3gh3y9yksbpf846bqxr"
+                        border="0" title="contador de visitas" alt="contador de visitas">
+                </a>
+                <p class="textoVisitas">Visitas en nuestra Intranet</p>
+            </div>
+        </ul>
+    </div>
+
+</div>

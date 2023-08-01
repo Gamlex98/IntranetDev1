@@ -23,7 +23,9 @@ export class SolicitudesComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.avisoAlert();
+    
+    // this.avisoAlert();
+
   }
 
   ngOnDestroy() {
@@ -36,7 +38,7 @@ export class SolicitudesComponent implements OnInit, OnDestroy, AfterViewInit {
     // this.stickyNavigation.cleanupMethod();
   }
 
-  avisoAlert() {
+  /* avisoAlert() {
     Swal.fire({
       position: 'center',
       icon: 'info',
@@ -49,6 +51,6 @@ export class SolicitudesComponent implements OnInit, OnDestroy, AfterViewInit {
         this.router.navigate(['/home']);
       }
     });
-  }
+  } */
 
 }

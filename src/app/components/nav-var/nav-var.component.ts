@@ -51,11 +51,15 @@ export class NavVarComponent implements OnInit , AfterViewInit {
   ngOnInit(): void {
     this.leerDatos();
     this.navData = this.getFilteredNavbarData();
+
+    // Asegurar que la barra de navegación esté correctamente expandida o contraída al cargar la página
+
+    this.ajustarPantalla(); 
+
   }
   
   ngAfterViewInit(): void {
-    this.screenWidth = window.innerWidth; // Obtener el ancho de la ventana después de que se haya renderizado la vista
-    this.ajustarPantalla(); // Asegurar que la barra de navegación esté correctamente expandida o contraída al cargar la página
+
   }
 
   leerDatos() {
@@ -84,6 +88,8 @@ export class NavVarComponent implements OnInit , AfterViewInit {
   }
 
   ajustarPantalla() {
+    this.screenWidth = window.innerWidth; // Obtener el ancho de la ventana después de que se haya renderizado la vista
+
     if (this.screenWidth <= 1100) {
       this.collapsed = false;
       this.onToggleSideNav.emit({

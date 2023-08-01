@@ -71,7 +71,7 @@ export class RegisterUserComponent implements OnInit {
       correo: ["", [Validators.required]],
       nombreCompleto: ["", [Validators.required, Validators.minLength(3)]],
       fechaNacimiento: ["", [Validators.required]],
-      password: ["", [Validators.required, Validators.minLength(5)]],
+      // password: ["", [Validators.required, Validators.minLength(5)]],
       lugarNacimiento: ["", [Validators.required]],
     });
   }
@@ -115,10 +115,13 @@ export class RegisterUserComponent implements OnInit {
       // datos.fechaNacimiento = selectedDate.toISOString();
       console.log("Fecha de Nacimiento:", datos.fechaNacimiento, typeof datos.fechaNacimiento);
 
-      let password=this.formularioRegister.controls['password'].value;;
+      // let password=this.formularioRegister.controls['password'].value;;
+      // datos.password = MD5(password).toString();
+      // console.log("Contraseña:", datos.password, typeof datos.password);
+
+      let password: string = "inicio";
       datos.password = MD5(password).toString();
       console.log("Contraseña:", datos.password, typeof datos.password);
-
 
       this.roleUsuario = 'user';
 

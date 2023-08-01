@@ -1,6 +1,6 @@
 /* Custom CSS for profile card - green */
 .profile-card-green {
-    background-color: #84a78d;
+    background-color: #14ad0f;
     border: 2px solid #8bbf8a;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -8,10 +8,20 @@
   .profile-card img {
     border: 5px solid #fff;
   }
+
+  .colorBoton {
+    background-color:white;
+    color:black;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .correo {
+    color: white;
+  }
   
   /* Custom CSS for profile details - green */
   .profile-details-green {
-    background-color: #84a78d;
+    background-color: #14ad0f;
     border: 2px solid #8bbf8a;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }

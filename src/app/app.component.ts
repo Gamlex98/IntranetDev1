@@ -151,7 +151,7 @@ export class AppComponent implements OnInit {
       // Actualizar el contador cada segundo
       const interval = setInterval(() => {
         this.tiempoRestante--;
-        Swal.update({
+        Swal.fire({
           text: `La sesión se cerrará en ${this.tiempoRestante} segundos`,
         });
         if (this.tiempoRestante === 0) {

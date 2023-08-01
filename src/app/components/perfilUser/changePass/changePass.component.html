@@ -9,22 +9,55 @@
           <form [formGroup]="formularioChange" action="">
             <fieldset>
               <legend>Cambiar Contraseña</legend>
+
               <div class="form-group">
                 <label for="user" style="font-weight: bold;">Usuario:</label>
                 <input formControlName="user" type="text" id="user" class="form-control" required placeholder="Digite su usuario">
               </div>
+
               <div class="form-group">
-                <label for="currentPassword" style="font-weight: bold;">Clave Actual:</label>
-                <input formControlName="currentPassword" type="password" id="currentPassword" class="form-control" required placeholder="Digite su clave actual">
+                <label style="font-weight: bold;">Clave Actual:</label>
+                <div class="input-group">
+                  <input formControlName="currentPassword" type="password" id="currentPassword" class="form-control" required
+                    placeholder="Digite su clave actual">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn" (click)="togglePasswordVisibility()">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
+
+
               <div class="form-group">
-                <label for="newPassword" style="font-weight: bold;">Nueva Clave:</label>
-                <input formControlName="newPassword" type="password" id="newPassword" class="form-control" required placeholder="Digite su nueva clave">
+                <label style="font-weight: bold;">Nueva Clave:</label>
+                <div class="input-group">
+                  <input formControlName="newPassword" type="password" id="newPassword" class="form-control" required
+                    placeholder="Digite su nueva clave">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn" (click)="togglePasswordVisibilityNewPass()">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
+
+
               <div class="form-group">
-                <label for="confirmPassword" style="font-weight: bold;">Confirmar Nueva Clave:</label>
-                <input formControlName="confirmPassword" type="password" id="confirmPassword" class="form-control" required placeholder="Confirme su nueva clave">
+                <label style="font-weight: bold;">Confirmar Nueva Clave:</label>
+                <div class="input-group">
+                  <input formControlName="confirmPassword" type="password" id="confirmPassword" class="form-control" required
+                    placeholder="Confirme su nueva clave">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn"
+                      (click)="togglePasswordVisibilityConfirmPass()">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
+
+
               <br>
               <div class="text-center">
                 <button (click)="ChangePassword()" class="btn btn-success" type="submit" style="font-weight: bold;">Cambiar Clave <i class="material-icons">check</i></button>

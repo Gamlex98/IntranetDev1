@@ -94,7 +94,12 @@ h4 {
   box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
 }
 
+.titleText {
+	font-size: 350%;
+}
+
 .card .details {
+	font-size: 50%;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -103,11 +108,24 @@ h4 {
 	z-index: -1;
 	margin-top: 35px;
 }
+@media (max-width: 768px) {
+	/* Cuando la pantalla tenga un ancho máximo de 768px o menos */
+	.details {
+	  font-size: 1em; /* Tamaño de fuente más pequeño para pantallas más pequeñas */
+	}
+  }
+  
+  @media (max-width: 480px) {
+	/* Cuando la pantalla tenga un ancho máximo de 480px o menos (por ejemplo, dispositivos móviles en posición vertical) */
+	.details {
+	  font-size: 0.8em; /* Tamaño de fuente aún más pequeño para pantallas más pequeñas */
+	}
+  }
 
 .card .details p {
-	margin-top: 15px;
-	font-size: 13px;
-	line-height: 5px;
+	margin-top: 10%;
+	font-size: 170%;
+	line-height: 3%;
 	transform: rotate(-10deg);
 	padding: 0  0 0 10px;
 	text-align: center;
@@ -134,13 +152,18 @@ h4 {
   
 .imgCumple {
 	margin-top: 55px;
-	width: 20%;
+	width: 10%;
 	height: 30%;
 }
 
 .dataTable {
 	width: auto;
 	height: auto;
+  }
+
+  .custom-table {
+	max-height: 700px; /* Ajusta el valor para el límite de altura que desees */
+	overflow-y: auto; /* Agrega un desplazamiento vertical cuando el contenido exceda el límite de altura */
   }
   
   @media (max-width: 600px) {

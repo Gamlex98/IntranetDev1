@@ -1,35 +1,48 @@
-/* styles.css */
-
-/* styles.css */
 
 /* Establecer el contenedor como flex y alinear los elementos al centro */
-.container {
+
+.flex-container {
+    margin-top: -40px;
+    margin-bottom: -15px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
   
-  /* Alinear el componente app-perfilUser a la izquierda y eliminar los márgenes */
+  /* Cambiar el orden de los elementos */
+  app-info-complement {
+    transform: translateY(0);
+    margin-bottom: -0px;
+    width: 50%;
+    order: 1; /* Establecer el orden deseado para app-info-complement */
+  }
+
+  .move-up {
+    position: relative;
+    top: 24px;
+  }
+  
   app-perfilUser {
-    margin-right: -150px; /* Eliminar el margen derecho */
-    margin-left: 0; /* Ajustar el margen izquierdo según tu preferencia */
+    margin-left: auto; /* Mover app-perfilUser hacia la derecha */
+    order: 2; /* Establecer el orden deseado para app-perfilUser */
+  }
+  
+  .marquee {
+    flex: 1; /* Asegurarse de que el marquee ocupe el espacio restante */
   }
   
   /* Alinear el logo al centro */
   .logoFresmar {
     margin-left: 25px;
-    width: 43%;
+    width: 25%;
     height: auto;
     margin: 0 auto; /* Alinear horizontalmente el logo al centro */
     display: block; /* Asegurarse de que el logo sea un bloque para que ocupe el ancho máximo */
   }
   
-
 .sidebar {
     width: calc(100% - 5rem);
   }
   
-
 .counter-wrapper {
     position: relative;
     float: right;
@@ -39,7 +52,6 @@
     text-align: center;
     position: relative;
 }
-
 
 .titulo {
     text-align: center;
@@ -67,7 +79,7 @@ a {
     flex-direction: column;
     justify-content: top;
     align-items: center;
-    height: 25vh;
+    height: 26vh;
     position: relative;
     background: #eee;
     text-align: center;

@@ -24,6 +24,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
   mostrar: Boolean = true;
   siteKey: string = '';
 
+  showPassword: boolean = false;
+  showConfirmPassword: boolean = false;
+
   constructor(
     private formBuild: FormBuilder,
     private serviceSeguridad: SeguridadService,
@@ -152,5 +155,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
       this.router.navigate(['home']);
     }
   }   //Fin Login
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+    const passwordInput = document.getElementById("clave") as HTMLInputElement;
+    passwordInput.type = this.showPassword ? "text" : "password";
+  }
 
 }

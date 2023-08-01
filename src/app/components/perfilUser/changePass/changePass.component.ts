@@ -14,6 +14,10 @@ import Swal from 'sweetalert2';
 export class ChangePassComponent implements OnInit {
   formularioChange: FormGroup=new FormGroup({});
 
+  
+  showPassword: boolean = false;
+  showConfirmPassword: boolean = false;
+
     constructor(
       private fb: FormBuilder,
       private serviceSeguridad: SeguridadService,
@@ -80,16 +84,16 @@ export class ChangePassComponent implements OnInit {
                 icon: 'success',
                 title: `Cambio de contraseña para el usuario <span style="color: blue; text-decoration: underline">${datos.usuario}</span> completado Existosamente !`,
                 showConfirmButton: false,
-                timer: 1000
+                timer: 2500
               });
               this.router.navigate(['home']);
               }else{
                 Swal.fire({
                   position: 'center',
-                  icon: 'success',
+                  icon: 'error',
                   title: `Contraseña incorrecta , por favor revisar...`,
                   showConfirmButton: false,
-                  timer: 1000
+                  timer: 2500
                 });
                 this.router.navigate(['changePass']);
             }
@@ -98,6 +102,24 @@ export class ChangePassComponent implements OnInit {
           });
        this.router.navigate(['home']);
       }
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+    const passwordInput = document.getElementById("currentPassword") as HTMLInputElement;
+    passwordInput.type = this.showPassword ? "text" : "password";
+  }
+
+  togglePasswordVisibilityNewPass() {
+    this.showPassword = !this.showPassword;
+    const passwordInput = document.getElementById("newPassword") as HTMLInputElement;
+    passwordInput.type = this.showPassword ? "text" : "password";
+  }
+
+  togglePasswordVisibilityConfirmPass() {
+    this.showPassword = !this.showPassword;
+    const passwordInput = document.getElementById("confirmPassword") as HTMLInputElement;
+    passwordInput.type = this.showPassword ? "text" : "password";
   }
 
 }

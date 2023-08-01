@@ -1,7 +1,7 @@
 <div class="background">
   <div class="container">
     <div class="form-container">
-      <h3>Creación de Usuarios Intranet</h3>
+      <h3>Registro de usuarios Intranet</h3>
       <form [formGroup]="formularioRegister" action="">
 
         <div class="form-group">
@@ -126,7 +126,7 @@
           <input type="date" formControlName="fechaNacimiento" class="form-control">
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label class="letra">Contraseña:</label>
           <div class="input-group">
             <input formControlName="password" type="password" id="password" class="form-control" required
@@ -137,14 +137,14 @@
               </button>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="row" style="margin-top: 15px;">
           <div class="col">
             <button (click)="CrearUsuario()" class="btn btn-primary letra" type="submit" name="action">Crear Usuario</button>
           </div>
           <div class="col">
-            <button type="button" class="btn btn-secondary letra btn-block" (click)="goBack()">Volver Atrás</button>
+            <button type="button" class="btn btn-secondary letra btn-block" routerLink="/admonUser">Volver Atrás</button>
           </div>
         </div>
         

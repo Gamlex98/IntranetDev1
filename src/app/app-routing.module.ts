@@ -15,6 +15,7 @@ import { PerfilUserComponent } from './components/perfilUser/perfilUser.componen
 import { EditarComponent } from './components/seguridad/editar/editar.component';
 import { ChangePassComponent } from './components/perfilUser/changePass/changePass.component';
 import { ProfileUserComponent } from './components/perfilUser/profileUser/profileUser.component';
+import { RegisterUserComponent } from './components/seguridad/register-user/register-user.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home',pathMatch:'full'},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'logout', component: LogoutComponent},
   {path: 'register', component: RegisterComponent,},
+  {path: 'registerUser',component: RegisterUserComponent},
   {path: 'resetPass', component: ResetPassComponent,},
   {path: 'admonUser', component: AdmonUserComponent},
   {path: 'listarUsers', component: ListarUsuariosComponent},
@@ -37,6 +39,7 @@ const routes: Routes = [
   {path: 'editar/:id', component: EditarComponent},
   {path: 'resetPass/:id',component: ChangePassComponent},
   {path: 'profileUser/:id',component: ProfileUserComponent},
+
   
 ];
 

@@ -7,12 +7,26 @@
     </div>
     <div class="right">
         <h5>Login</h5>
-        <p style="margin-top: 100px;"> No tienes una cuenta? <a class="link" (click)="onRegisterClick()">Crear Cuenta</a> Esto solamente tomará un minuto.</p>
+        <!-- <p style="margin-top: 100px;"> No tienes una cuenta? <a class="link" (click)="onRegisterClick()">Crear Cuenta</a> Esto solamente tomará un minuto.</p> -->
+        <p style="margin-top: 100px;"> No tienes una cuenta? llena el
+            <a class="link" href="https://docs.google.com/forms/d/123rUuYWr-8HOJSwocPnri2Y2bFS7iqBASbyQCUElglg/viewform?edit_requested=true#responses" target="_blank">Formulario de registro.</a> 
+            Esto solamente tomará un minuto.</p>
         <div class="inputs">
             <form [formGroup]="formularioLogin" (ngSubmit)="Login()" class="login">
                 <input formControlName="usuario" type="text" placeholder="Usuario" id="usuario" class="validate">
                 <br>
-                <input formControlName="password" type="password" id="clave" placeholder="Contraseña" class="validate">
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <input formControlName="password" type="password" id="clave" placeholder="Contraseña" class="validate">
+                    </div>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn" (click)="togglePasswordVisibility()">
+                          <i class="fa fa-eye"></i>
+                        </button>
+                      </div>
+                </div>
+
                 <br><br>
                 <div class="remember-me--forget-password">
                     <p> Olvidaste la contraseña ? <a class="link" h (click)="onResetPassClick()">Recuperar</a> </p>
